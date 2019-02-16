@@ -12,7 +12,6 @@
 		46031C052216DB09004A9006 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 46031C032216DB09004A9006 /* MainMenu.xib */; };
 		46031C142216DB1E004A9006 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46031C132216DB1E004A9006 /* Cocoa.framework */; };
 		46031C172216DB1E004A9006 /* SourceEditorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46031C162216DB1E004A9006 /* SourceEditorExtension.swift */; };
-		46031C192216DB1E004A9006 /* SourceEditorCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46031C182216DB1E004A9006 /* SourceEditorCommand.swift */; };
 		46031C1E2216DB1E004A9006 /* Generator.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 46031C112216DB1E004A9006 /* Generator.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		46031C242216E2D5004A9006 /* GenerateEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46031C232216E2D5004A9006 /* GenerateEnums.swift */; };
 /* End PBXBuildFile section */
@@ -51,7 +50,6 @@
 		46031C112216DB1E004A9006 /* Generator.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Generator.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		46031C132216DB1E004A9006 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		46031C162216DB1E004A9006 /* SourceEditorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorExtension.swift; sourceTree = "<group>"; };
-		46031C182216DB1E004A9006 /* SourceEditorCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceEditorCommand.swift; sourceTree = "<group>"; };
 		46031C1A2216DB1E004A9006 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		46031C1B2216DB1E004A9006 /* Generator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Generator.entitlements; sourceTree = "<group>"; };
 		46031C232216E2D5004A9006 /* GenerateEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateEnums.swift; sourceTree = "<group>"; };
@@ -120,7 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				46031C162216DB1E004A9006 /* SourceEditorExtension.swift */,
-				46031C182216DB1E004A9006 /* SourceEditorCommand.swift */,
 				46031C232216E2D5004A9006 /* GenerateEnums.swift */,
 				46031C1A2216DB1E004A9006 /* Info.plist */,
 				46031C1B2216DB1E004A9006 /* Generator.entitlements */,
@@ -239,7 +236,6 @@
 			files = (
 				46031C172216DB1E004A9006 /* SourceEditorExtension.swift in Sources */,
 				46031C242216E2D5004A9006 /* GenerateEnums.swift in Sources */,
-				46031C192216DB1E004A9006 /* SourceEditorCommand.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

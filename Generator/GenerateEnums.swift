@@ -12,9 +12,6 @@ import XcodeKit
 class GenerateEnums: NSObject, XCSourceEditorCommand {
     
     func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void ) -> Void {
-        guard let selection = invocation.buffer.selections.firstObject as? XCSourceTextRange else {
-            return
-        }
         if invocation.buffer.contentUTI == "com.apple.xcode.strings-text" {
             var localizedKey: [String : String] = [:]
             for (line) in invocation.buffer.lines.enumerated() {
@@ -45,13 +42,10 @@ class GenerateEnums: NSObject, XCSourceEditorCommand {
                     localizedKey[cleanKey] = enumKey
                 }
             }
-            var result:[String] = ["Enum DOCLocalizedKye: String {"]
-            print("Enum DOCLocalizedKye: String {")
+            var result:[String] = ["enum DOCLocalizedKye: String {"]
             for (key, value) in localizedKey {
-                print(" case \(value.replacingOccurrences(of: ".", with: "")) = \"\(key)\"")
-                result.append("case \(value.replacingOccurrences(of: ".", with: "")) = \"\(key)\"")
+                result.append("     case \(value.replacingOccurrences(of: ".", with: "")) = \"\(key)\"")
             }
-            print("\n}")
             result.append("\n}")
             guard let selection = invocation.buffer.selections.firstObject as? XCSourceTextRange else {
                 return
