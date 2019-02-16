@@ -14,6 +14,7 @@
 		46031C172216DB1E004A9006 /* SourceEditorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46031C162216DB1E004A9006 /* SourceEditorExtension.swift */; };
 		46031C1E2216DB1E004A9006 /* Generator.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 46031C112216DB1E004A9006 /* Generator.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		46031C242216E2D5004A9006 /* GenerateEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46031C232216E2D5004A9006 /* GenerateEnums.swift */; };
+		65A2794A2218B15B0013B48C /* SwiftScan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A279492218B15B0013B48C /* SwiftScan.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		46031C1B2216DB1E004A9006 /* Generator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Generator.entitlements; sourceTree = "<group>"; };
 		46031C232216E2D5004A9006 /* GenerateEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateEnums.swift; sourceTree = "<group>"; };
 		46031C252216EDC8004A9006 /* RegularTest.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = RegularTest.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		65A279492218B15B0013B48C /* SwiftScan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftScan.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 				46031C1A2216DB1E004A9006 /* Info.plist */,
 				46031C1B2216DB1E004A9006 /* Generator.entitlements */,
 				46031C252216EDC8004A9006 /* RegularTest.playground */,
+				65A279492218B15B0013B48C /* SwiftScan.swift */,
 			);
 			path = Generator;
 			sourceTree = "<group>";
@@ -236,6 +239,7 @@
 			files = (
 				46031C172216DB1E004A9006 /* SourceEditorExtension.swift in Sources */,
 				46031C242216E2D5004A9006 /* GenerateEnums.swift in Sources */,
+				65A2794A2218B15B0013B48C /* SwiftScan.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

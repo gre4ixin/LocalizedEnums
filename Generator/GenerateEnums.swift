@@ -11,46 +11,32 @@ import XcodeKit
 
 class GenerateEnums: NSObject, XCSourceEditorCommand {
     
+    let scaner = SwiftScan()
+    
     func perform(with invocation: XCSourceEditorCommandInvocation, completionHandler: @escaping (Error?) -> Void ) -> Void {
         if invocation.buffer.contentUTI == "com.apple.xcode.strings-text" {
-            var localizedKey: [String : String] = [:]
+            var localizedKey: [Pair] = []
             for (line) in invocation.buffer.lines.enumerated() {
-                let lineString = line.element as! String
-                var cleanKey: String = ""
-                let cleanString = lineString.replacingOccurrences(of: " ", with: "")
-                let range = cleanString
-                    .range(of: "\".*\"[=]\".*\";", options: .regularExpression, range: nil, locale: nil)
-                if range != nil {
-                    let rangeKey = cleanString[range!].range(of: "\".*\"[=]", options: .regularExpression, range: nil, locale: nil)
-                    if rangeKey != nil {
-                        cleanKey = cleanString[rangeKey!].replacingOccurrences(of: "=", with: "").replacingOccurrences(of: "\"", with: "")
+                if line.element is String {
+                    let lineString = line.element as! String
+                    do {
+                        let pair = try scaner.scaningStrings(lineString)
+                        localizedKey.append(pair)
+                    } catch {
+                        print("bad string")
                     }
-                    var enumKey: String = ""
-                    var previousWasUnderscore: Bool = false
-                    for char in cleanKey {
-                        if char != "_" && char != "-" {
-                            if previousWasUnderscore {
-                                enumKey += "\(char)".uppercased()
-                            } else {
-                                enumKey += "\(char)"
-                            }
-                            previousWasUnderscore = false
-                        } else {
-                            previousWasUnderscore = true
-                        }
-                    }
-                    localizedKey[cleanKey] = enumKey
                 }
             }
             var result:[String] = ["enum DOCLocalizedKye: String {"]
-            for (key, value) in localizedKey {
-                result.append("     case \(value.replacingOccurrences(of: ".", with: "")) = \"\(key)\"")
+            for pair in localizedKey {
+                if pair.shouldCommented {
+                    result.append("//   case \(pair.value) = \"\(pair.key)\"")
+                } else {
+                    result.append("     case \(pair.value) = \"\(pair.key)\"")
+                }
             }
             result.append("\n}")
-            guard let selection = invocation.buffer.selections.firstObject as? XCSourceTextRange else {
-                return
-            }
-            let targetRange = selection.end.line + 1 ..< selection.end.line + 1 + result.count
+            let targetRange = invocation.buffer.lines.count ..< invocation.buffer.lines.count + result.count
             invocation.buffer.lines.insert(result, at: IndexSet(integersIn: targetRange))
         }
         
