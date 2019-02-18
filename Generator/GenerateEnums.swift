@@ -27,7 +27,7 @@ class GenerateEnums: NSObject, XCSourceEditorCommand {
                     }
                 }
             }
-            var result:[String] = ["enum DOCLocalizedKye: String {"]
+            var result:[String] = []
             for pair in localizedKey {
                 if pair.shouldCommented {
                     result.append("//   case \(pair.value) = \"\(pair.key)\"")
@@ -35,7 +35,6 @@ class GenerateEnums: NSObject, XCSourceEditorCommand {
                     result.append("     case \(pair.value) = \"\(pair.key)\"")
                 }
             }
-            result.append("\n}")
             let targetRange = invocation.buffer.lines.count ..< invocation.buffer.lines.count + result.count
             invocation.buffer.lines.insert(result, at: IndexSet(integersIn: targetRange))
         }

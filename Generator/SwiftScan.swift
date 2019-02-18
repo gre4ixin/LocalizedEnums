@@ -70,6 +70,8 @@ class SwiftScan: NSObject {
             cleanResult = "`operator`"
         } else if cleanValue == "repeat" {
             cleanResult = "`repeat`"
+        } else if cleanValue == "do" {
+            cleanResult = "`do`"
         } else {
             cleanResult = cleanValue
         }
